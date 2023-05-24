@@ -50,7 +50,11 @@ export class AppComponent {
 
       if(this.displayValue == '' && 'Error'){
 
-      }else{
+      }
+      else if(this.displayValue <= '0'){
+        this.displayValue = 'Error';
+      }
+      else{
 
       
       this.resultado = Number(Math.sqrt(eval(this.displayValue)));
@@ -85,7 +89,14 @@ export class AppComponent {
     try {
       if(this.displayValue == '' && 'Error'){
 
-      }else{
+      }
+      else if(this.displayValue = '90'){
+        this.resultado = Number(Math.cos(eval(this.displayValue)* (Math.PI/180.0)));
+      this.addToHistory('Cos(' + this.displayValue + ')' + '=' + '0')
+
+      this.displayValue = '';
+      }
+      else{
       this.resultado = Number(Math.cos(eval(this.displayValue)* (Math.PI/180.0)));
       this.addToHistory('Cos(' + this.displayValue + ')' + '=' + this.resultado);
       
@@ -100,7 +111,13 @@ export class AppComponent {
     try {
       if(this.displayValue == ''){
 
-      }else{
+      }
+      else if(this.displayValue = '90'){
+      this.addToHistory('Cos(' + this.displayValue + ')' + '=' + '∞')
+
+      this.displayValue = '';
+      }
+      else{
       this.resultado = Number(Math.tan(eval(this.displayValue)* (Math.PI/180.0)));
       this.addToHistory('Tan(' + this.displayValue + ')' + '=' + this.resultado);
       
