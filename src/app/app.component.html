@@ -1,0 +1,94 @@
+<div class="container">
+
+
+  <h1 class="text-center text-light mt-3"> <i class="fa fa-calculator" aria-hidden="true"></i> Proyecto Calculadora</h1>
+  <div class="row mt-3 bg-dark full">
+
+    <!-- Calculadora -->
+    <div class="col-sm-6 mt-2 mb-2">
+
+      <div>
+
+        <div class="input-group mb-3">
+          <div class="input-group-prepend">
+
+          </div>
+          <div class="display" class="form-control">{{ displayValue }} {{resultado?.toFixed(2) }}</div>
+        </div>
+
+      </div>
+      <div class="container text-center">
+        <b>
+          <h1>
+            <input type="button" (click)="this.resultado = undefined;" (click)="Sen()" value="sen">
+            <input type="button" (click)="this.resultado = undefined;" (click)="Cos()" value="cos">
+            <input type="button" (click)="this.resultado = undefined;" (click)="Tan()" value="tan">
+            <input type="button" (click)="this.resultado = undefined;" (click)="addToDisplay('(')" value="(">
+            <input type="button" (click)="this.resultado = undefined;" (click)="addToDisplay(')')" value=")">
+            
+
+          </h1>
+          <h1>
+            <input type="button" (click)="this.resultado = undefined;" (click)="addToDisplay('1')" value="1">
+            <input type="button" (click)="this.resultado = undefined;" (click)="addToDisplay('2')" value="2">
+            <input type="button" (click)="this.resultado = undefined;" (click)="addToDisplay('3')" value="3">
+            <input type="button" (click)="this.resultado = undefined;" (click)="addToDisplay('+')" value="+">
+            <input type="button" (click)="this.resultado = undefined;" (click)="addToDisplay('*')" value="*">
+
+          </h1>
+
+          <h1>
+            <input type="button" (click)="this.resultado = undefined;" (click)="addToDisplay('4')" value="4">
+            <input type="button" (click)="this.resultado = undefined;" (click)="addToDisplay('5')" value="5">
+            <input type="button" (click)="this.resultado = undefined;" (click)="addToDisplay('6')" value="6">
+            <input type="button" (click)="this.resultado = undefined;" (click)="addToDisplay('-')" value="-">
+            <input type="button" (click)="this.resultado = undefined;" (click)="addToDisplay('/')" value="/">
+          </h1>
+          <h1>
+            <input type="button" (click)="this.resultado = undefined;" (click)="addToDisplay('7')" value="7">
+            <input type="button" (click)="this.resultado = undefined;" (click)="addToDisplay('8')" value="8">
+            <input type="button" (click)="this.resultado = undefined;" (click)="addToDisplay('9')" value="9">
+            <input type="button" (click)="this.resultado = undefined;" (click)="addToDisplay('**')" value="^">
+            <input type="button" (click)="this.resultado = undefined;" (click)="Raiz()" value="√">
+            
+
+          </h1>
+
+          <h1>
+            <input type="button" (click)="this.resultado = undefined;" (click)="addToDisplay('0')" value="0">
+            <input type="button" (click)="this.resultado = undefined;" (click)="addToDisplay('.')" value=".">
+            <input type="button" (click)="this.resultado = undefined;" (click)="CEDisplay()" value="CE">
+            <input type="button" (click)="this.resultado = undefined;" (click)="clearDisplay()" value="C">
+            <input type="button" (click)="this.resultado = undefined;" (click)="calculate()" value="=">
+            
+
+          </h1>
+
+         
+        </b>
+      </div>
+
+    </div>
+
+    <!-- History -->
+    <div class="col-sm-6">
+
+      <div class="card bg-dark text-light" id="scroll">
+        <div class="card-title, mr-2"><i class="fa fa-history" aria-hidden="true"></i> History</div>
+        <div class="display" class="card-body scroll" data-spy="scroll" data-target="#scroll" #mostrarOperciones>
+          <li *ngFor="let item of Historial; let i = index">{{ item }}     
+          <button style="text-align:center" class="fa fa-trash-o" aria-hidden="true" (click)="clearHistory(i)"> </button>
+          </li>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+
+
+
+</div>
+
+
+
