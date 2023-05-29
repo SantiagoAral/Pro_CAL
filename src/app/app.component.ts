@@ -31,9 +31,16 @@ export class AppComponent {
   public calculate(): void {
     
     try {
-      if(this.displayValue == '' && 'Error'){
+      if(this.displayValue == ''){
 
-      }else{
+      }
+      else if(this.displayValue == 'Error'){
+        this.displayValue = '';
+      }
+      else if(this.displayValue == this.displayValue.slice(0, -2) + '/0'){
+        this.displayValue = 'Error';
+      }
+      else{
       this.resultado = Number(eval(this.displayValue));
       this.addToHistory(this.displayValue +  '=' + Number(eval(this.displayValue)));
       
@@ -43,13 +50,17 @@ export class AppComponent {
     } catch (error) {
       this.displayValue = 'Error';
     }
+
   }
 
   public Raiz():void{
     try {
 
-      if(this.displayValue == '' && 'Error'){
+      if(this.displayValue == ''){
 
+      }
+      else if(this.displayValue == 'Error'){
+        this.displayValue = '';
       }
       else if(this.displayValue <= '0'){
         this.displayValue = 'Error';
@@ -70,9 +81,13 @@ export class AppComponent {
 
   public Sen(): void{
     try {
-      if(this.displayValue == '' && 'Error'){
-
-      }else{
+      if(this.displayValue == ''){
+        
+      }
+      else if(this.displayValue == 'Error'){
+        this.displayValue = '';
+      }
+      else{
       this.resultado = Number(Math.sin(eval(this.displayValue)* (Math.PI/180.0)));
       this.addToHistory('Sen(' + this.displayValue + ')' + '=' + this.resultado);
       
@@ -87,10 +102,13 @@ export class AppComponent {
 
   public Cos(): void{
     try {
-      if(this.displayValue == '' && 'Error'){
+      if(this.displayValue == '' ){
 
       }
-      else if(this.displayValue = '90'){
+      else if(this.displayValue == 'Error'){
+        this.displayValue = '';
+      }
+      else if(this.displayValue == '90'){
         this.resultado = Number(Math.cos(eval(this.displayValue)* (Math.PI/180.0)));
       this.addToHistory('Cos(' + this.displayValue + ')' + '=' + '0')
 
@@ -112,8 +130,11 @@ export class AppComponent {
       if(this.displayValue == ''){
 
       }
-      else if(this.displayValue = '90'){
-      this.addToHistory('Cos(' + this.displayValue + ')' + '=' + '∞')
+      else if(this.displayValue == 'Error'){
+        this.displayValue = '';
+      }
+      else if(this.displayValue == '90'){
+      this.addToHistory('Tan(' + this.displayValue + ')' + '=' + '∞')
 
       this.displayValue = '';
       }
@@ -134,6 +155,11 @@ export class AppComponent {
   }
   public CEDisplay(): void{
       this.displayValue = this.displayValue.slice(0, -1);
+  }
+  public BorrarError(){
+    if(this.displayValue == 'Error'){
+      this.displayValue = '';
+    }
   }
 
 
